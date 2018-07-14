@@ -6,7 +6,7 @@
     <string name="or">or</string>
     <string name="identity">Username or email address</string>
     <string name="pwd">Password</string>
-    <string name="forgot_pwd">Password forgotten ?</string>
+    <string name="forgot_pwd">Forgot your username or password ?</string>
     <string name="connect">Connection</string>
 
     <!-- MENU -->

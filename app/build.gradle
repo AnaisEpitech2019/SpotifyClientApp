@@ -19,8 +19,19 @@ android {
     }
 }
 
+repositories {
+    mavenCentral()
+
+    flatDir {
+        dirs 'libs'
+    }
+    google()
+}
+
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation (name: 'api_lib', ext: 'aar')
+
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
 
     testImplementation 'junit:junit:4.12'
@@ -28,6 +39,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    compile 'com.android.support:appcompat-v7:25.0.1'
-    compile 'com.android.support:design:25.4.0'
+    implementation 'com.android.support:appcompat-v7:25.0.1'
+    implementation 'com.android.support:design:25.4.0'
 }
