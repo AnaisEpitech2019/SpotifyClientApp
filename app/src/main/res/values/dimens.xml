@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- TEXT -->
+    <dimen name="size_text">14dp</dimen>
+    <dimen name="size_text_main_button">18dp</dimen>
+    <dimen name="size_title">24dp</dimen>
+
+    <dimen name="padding_text">10dp</dimen>
+
+    <!-- TOOLBAR -->
+    <dimen name="size_text_toolbar">20dp</dimen>
+    <dimen name="size_shadow">3dp</dimen>
+    <dimen name="size_elevation">4dp</dimen>
+
+    <!-- BUTTONS -->
+    <dimen name="paddingH_button">30dp</dimen>
+    <dimen name="paddingV_button">10dp</dimen>
+
+    <dimen name="margin_button">15dp</dimen>
+
+    <!-- IMAGES -->
+    <dimen name="size_img_sidebar">30dp</dimen>
+
+    <dimen name="margin_img">10dp</dimen>
+
+    <dimen name="padding_img">5dp</dimen>
+
+    <!-- LAYOUTS -->
+    <dimen name="margin_layout">20dp</dimen>
+
+</resources>

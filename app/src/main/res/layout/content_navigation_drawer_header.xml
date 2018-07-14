@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:gravity="center"
+    android:elevation="@dimen/size_elevation"
+    android:padding="@dimen/margin_button"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/margin_layout">
+
+        <TextView
+            android:id="@+id/nav_header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_gravity="center_vertical|left"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_text_toolbar" />
+
+    </LinearLayout>
+
+</LinearLayout>

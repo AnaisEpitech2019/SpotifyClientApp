@@ -3,4 +3,20 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="background">#1E1F21</color>
+
+    <!-- TEXT -->
+    <color name="text">#6D837D</color>
+
+    <!-- EDIT TEXT -->
+    <color name="background_edittext">#333333</color>
+
+    <!-- BUTTONS -->
+    <color name="fb_button">#3B5998</color>
+    <color name="main_button">#1DB954</color>
+
 </resources>

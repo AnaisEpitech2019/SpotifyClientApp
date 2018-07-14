@@ -1,3 +1,27 @@
 <resources>
-    <string name="app_name">SpotifyClientApp</string>
+    <string name="app_name">Spotify</string>
+
+    <!-- AUTHENTICATION -->
+    <string name="fb_connect">Connexion avec Facebook</string>
+    <string name="or">ou</string>
+    <string name="identity">Nom d\'utilisateur ou adresse e-mail</string>
+    <string name="pwd">Mot de passe</string>
+    <string name="forgot_pwd">Mot de passe oublié ?</string>
+    <string name="connect">Connexion</string>
+
+    <!-- MENU -->
+    <string name="home">Accueil</string>
+    <string name="profile">Profil</string>
+    <string name="playlist">Ma librairie</string>
+    <string name="logout">Déconnexion</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <!-- ICONS -->
+    <string name="fa_icon_home">&#xf015;</string>
+    <string name="fa_icon_profile">&#xf007;</string>
+    <string name="fa_icon_playlist">&#xf001;</string>
+    <string name="fa_icon_logout">&#xf2f5;</string>
+
 </resources>

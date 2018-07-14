@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_img"
+        android:padding="@dimen/padding_img"
+        android:src="@drawable/logo_spotify" />
+
+    <LinearLayout
+        android:id="@+id/fb_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/margin_layout"
+        android:background="@drawable/shape_fbbutton"
+
+        android:onClick="onFbButtonClicked">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:text="@string/fb_connect"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_text_main_button"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/or"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@id/fb_button"
+        android:padding="@dimen/padding_text"
+        android:text="@string/or"
+        android:textColor="@color/text"
+        android:textAllCaps="true"
+        />
+
+    <LinearLayout
+        android:id="@+id/fields"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/or"
+        android:layout_margin="@dimen/margin_layout"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/edit_text_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/padding_text"
+            android:background="@drawable/shape_edittext"
+            android:inputType="textEmailAddress"
+            android:hint="@string/identity"
+            android:textColorHint="@color/text"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_text"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/edit_text_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/padding_text"
+            android:background="@drawable/shape_edittext"
+            android:hint="@string/pwd"
+            android:textColorHint="@color/text"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_text"
+            android:inputType="textPassword"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_text"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/forgot_pwd"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_text"
+            android:clickable="true"
+
+            android:onClick="onForgotPwdButtonClicked"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/shape_mainbutton"
+        android:text="@string/connect"
+        android:textColor="@color/white"
+        android:textAllCaps="true"
+        android:textSize="@dimen/size_text_main_button"
+        android:gravity="center"
+
+        android:onClick="onConnectButtonClicked"/>
+
+</LinearLayout>
