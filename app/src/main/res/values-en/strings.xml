@@ -12,7 +12,7 @@
     <!-- MENU -->
     <string name="home">Home</string>
     <string name="profile">Profile</string>
-    <string name="playlist">My library</string>
+    <string name="playlist">My libraries</string>
     <string name="logout">Logout</string>
 
     <string name="open">Open</string>
@@ -23,5 +23,11 @@
     <string name="fa_icon_profile">&#xf007;</string>
     <string name="fa_icon_playlist">&#xf001;</string>
     <string name="fa_icon_logout">&#xf2f5;</string>
+
+    <!-- PLAYLISTS -->
+    <string name="sentence_no_playlists">You have any library saved.</string>
+
+    <!-- ERROR -->
+    <string name="global_error">An error has occurred. Please try again.</string>
 
 </resources>

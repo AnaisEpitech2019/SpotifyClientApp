@@ -13,6 +13,7 @@ import com.spotifyclientapp.anais.spotifyclientapp.R;
 import com.spotifyclientapp.anais.spotifyclientapp.authentication.ConnectActivity;
 import com.spotifyclientapp.anais.spotifyclientapp.recycler.NavigationDrawerAdapter;
 import com.spotifyclientapp.anais.spotifyclientapp.utils.AToolbarCompatActivity;
+import com.spotifyclientapp.anais.spotifyclientapp_api.managers.APIManager;
 
 import java.util.ArrayList;
 
@@ -30,6 +31,9 @@ public class HomeActivity extends AToolbarCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        Intent myIntent = getIntent();
+        APIManager.setAuthToken(myIntent.getStringExtra("token"));
 
         //TODO Get la liste des musiques
         setView();
@@ -120,13 +124,11 @@ public class HomeActivity extends AToolbarCompatActivity implements View.OnClick
                 break;
             case ID_PROFILE:
                 _drawerLayout.closeDrawer(GravityCompat.START);
-                //TODO Ajouter la page de profil de l'utilisateur
-                //startActivity(new Intent(this, ProfileActivity.class));
+                startActivity(new Intent(this, ProfileActivity.class));
                 break;
             case ID_PLAYLIST:
                 _drawerLayout.closeDrawer(GravityCompat.START);
-                //TODO Ajouter la page de la librairie de l'utilisateur
-                //startActivity(new Intent(this, PlaylistActivity.class));
+                startActivity(new Intent(this, PlaylistsActivity.class));
                 break;
             case ID_LOGOUT:
                 _drawerLayout.closeDrawer(GravityCompat.START);

@@ -12,7 +12,7 @@
     <!-- MENU -->
     <string name="home">Accueil</string>
     <string name="profile">Profil</string>
-    <string name="playlist">Ma librairie</string>
+    <string name="playlist">Mes librairies</string>
     <string name="logout">Déconnexion</string>
 
     <string name="open">Open</string>
@@ -23,5 +23,11 @@
     <string name="fa_icon_profile">&#xf007;</string>
     <string name="fa_icon_playlist">&#xf001;</string>
     <string name="fa_icon_logout">&#xf2f5;</string>
+
+    <!-- PLAYLISTS -->
+    <string name="sentence_no_playlists">Vous n\'avez aucune librairie enregistrée.</string>
+
+    <!-- ERROR -->
+    <string name="global_error">Une erreur s\'est produite. Veuillez réessayer.</string>
 
 </resources>
