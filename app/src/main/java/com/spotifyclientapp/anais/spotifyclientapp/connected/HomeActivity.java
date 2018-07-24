@@ -52,7 +52,7 @@ public class HomeActivity extends AToolbarCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        getData("");
+        getData("0", "20");
     }
 
     @Override
@@ -95,11 +95,19 @@ public class HomeActivity extends AToolbarCompatActivity implements View.OnClick
     ** Get Data : Categories
     */
 
-    public void getData(String ext) {
-        HomeManager.getAllCategories(ext, new MyCallback<AllCategories>() {
+    public void getData(String offset, String limit) {
+        HomeManager.getAllCategories(offset, limit, new MyCallback<AllCategories>() {
             @Override
             public void onResponseSuccess(AllCategories allCategories, Headers headers) {
-                _list_categories = allCategories.info_categories.list_categories;
+                if (_list_categories == null)
+                    _list_categories = allCategories.info_categories.list_categories;
+                else
+                    _list_categories.addAll(allCategories.info_categories.list_categories);
+
+                if (allCategories.info_categories.next != null && allCategories.info_categories.next != "") {
+                    String[] parts = allCategories.info_categories.next.split("=|&");
+                    getData(parts[1], parts[3]);
+                }
                 setView();
             }
 

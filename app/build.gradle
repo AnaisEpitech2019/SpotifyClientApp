@@ -32,7 +32,7 @@ dependencies {
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation (name: 'api_client', ext: 'aar')
+    implementation (name: 'lib_api_client', ext: 'aar')
     implementation (name: 'lib_api_spotify', ext: 'aar')
     implementation (name: 'lib_api_spotify-noconnect', ext: 'aar')
 
