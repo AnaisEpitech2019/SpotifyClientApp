@@ -12,6 +12,7 @@ import com.spotify.sdk.android.authentication.AuthenticationResponse;
 import com.spotify.sdk.android.player.Spotify;
 import com.spotifyclientapp.anais.spotifyclientapp.R;
 import com.spotifyclientapp.anais.spotifyclientapp.connected.HomeActivity;
+import com.spotifyclientapp.anais.spotifyclientapp_api.managers.APIManager;
 
 public class ConnectActivity extends AppCompatActivity {
 
@@ -24,6 +25,7 @@ public class ConnectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect);
 
+        // Authenticate Spotify
         AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI);
 
         builder.setScopes(new String[]{"streaming"});
@@ -47,9 +49,8 @@ public class ConnectActivity extends AppCompatActivity {
             switch (response.getType()) {
                 case TOKEN:
                     Log.d("ConnectActivity", "SUCCESS : " + response.getAccessToken());
-                    Intent myIntent = new Intent(this, HomeActivity.class);
-                    myIntent.putExtra("token",response.getAccessToken());
-                    startActivity(myIntent);
+                    APIManager.setAuthToken(response.getAccessToken());
+                    startActivity(new Intent(this, HomeActivity.class));
                     break;
 
                 case ERROR:

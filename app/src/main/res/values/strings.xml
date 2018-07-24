@@ -20,6 +20,7 @@
 
     <!-- ICONS -->
     <string name="fa_icon_home">&#xf015;</string>
+    <string name="fa_icon_search">&#xf002;</string>
     <string name="fa_icon_profile">&#xf007;</string>
     <string name="fa_icon_playlist">&#xf001;</string>
     <string name="fa_icon_logout">&#xf2f5;</string>

@@ -17,7 +17,7 @@ import com.spotifyclientapp.anais.spotifyclientapp.recycler.NavigationDrawerAdap
 import com.spotifyclientapp.anais.spotifyclientapp.utils.AToolbarCompatActivity;
 import com.spotifyclientapp.anais.spotifyclientapp_api.callbacks.MyCallback;
 import com.spotifyclientapp.anais.spotifyclientapp_api.managers.AccountManager;
-import com.spotifyclientapp.anais.spotifyclientapp_api.models.User;
+import com.spotifyclientapp.anais.spotifyclientapp_api.models.authentication.User;
 
 import java.util.ArrayList;
 

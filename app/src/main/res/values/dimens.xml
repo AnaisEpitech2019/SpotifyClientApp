@@ -19,6 +19,10 @@
 
     <dimen name="margin_button">15dp</dimen>
 
+    <!-- CARD VIEW -->
+    <dimen name="width_card">120dp</dimen>
+    <dimen name="margin_card">20dp</dimen>
+
     <!-- IMAGES -->
     <dimen name="size_img_sidebar">30dp</dimen>
 

@@ -7,7 +7,7 @@
     android:gravity="center"
     android:elevation="@dimen/size_elevation"
     android:padding="@dimen/margin_button"
-    android:background="@color/background">
+    android:background="@color/main_color">
 
     <LinearLayout
         android:layout_width="wrap_content"

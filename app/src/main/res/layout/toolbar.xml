@@ -5,7 +5,7 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@color/background"
+    android:background="@color/main_color"
     app:contentInsetStart="0dp"
     app:contentInsetEnd="0dp"
     android:elevation="4dp"
@@ -18,17 +18,15 @@
         android:textSize="@dimen/size_text"
         android:textColor="@color/white"
         android:layout_gravity="center"/>
-<!--
+
     <ImageView
-        android:id="@+id/button_view_members"
+        android:id="@+id/icon_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_image"
-        android:layout_marginRight="@dimen/margin_image"
+        android:layout_marginLeft="@dimen/margin_img"
+        android:layout_marginRight="@dimen/margin_img"
         android:layout_gravity="right"
-        android:src="@drawable/icon_search"
         android:visibility="invisible"
         android:clickable="true"/>
--->
 
 </android.support.v7.widget.Toolbar>

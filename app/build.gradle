@@ -32,7 +32,7 @@ dependencies {
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation (name: 'lib_api_client', ext: 'aar')
+    implementation (name: 'api_client', ext: 'aar')
     implementation (name: 'lib_api_spotify', ext: 'aar')
     implementation (name: 'lib_api_spotify-noconnect', ext: 'aar')
 
@@ -56,4 +56,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
     implementation 'com.squareup.okhttp3:okhttp:3.4.1'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+
+    implementation 'com.android.support:cardview-v7:26.1.0'
 }
