@@ -7,25 +7,29 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.spotifyclientapp.anais.spotifyclientapp.R;
 import com.spotifyclientapp.anais.spotifyclientapp.authentication.ConnectActivity;
 import com.spotifyclientapp.anais.spotifyclientapp.recycler.NavigationDrawerAdapter;
+import com.spotifyclientapp.anais.spotifyclientapp.recycler.listArtists.ArtistslistAdapter;
 import com.spotifyclientapp.anais.spotifyclientapp.recycler.listCategories.CategorieslistAdapter;
 import com.spotifyclientapp.anais.spotifyclientapp.utils.AToolbarCompatActivity;
 import com.spotifyclientapp.anais.spotifyclientapp_api.callbacks.MyCallback;
 import com.spotifyclientapp.anais.spotifyclientapp_api.managers.HomeManager;
 import com.spotifyclientapp.anais.spotifyclientapp_api.models.CategoryMusic;
 import com.spotifyclientapp.anais.spotifyclientapp_api.models.modelsAll.AllCategories;
+import com.spotifyclientapp.anais.spotifyclientapp_api.models.search.Artist;
+import com.spotifyclientapp.anais.spotifyclientapp_api.models.search.ResultSearch;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,16 +47,18 @@ public class HomeActivity extends AToolbarCompatActivity implements View.OnClick
     private NavigationDrawerAdapter _drawerAdapter;
 
     private RecyclerView _recycler;
-    private CategorieslistAdapter _adapter;
+    private CategorieslistAdapter _adapterCategories;
+    private ArtistslistAdapter _adapterArtists;
 
     private List<CategoryMusic> _list_categories;
+    private List<Artist> _list_artists;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        getData("0", "20");
+        getDataCategories("0", "20");
     }
 
     @Override
@@ -66,7 +72,9 @@ public class HomeActivity extends AToolbarCompatActivity implements View.OnClick
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                Log.d("HOME ACTIVITY", "Query : " + query);
+                if (_list_artists != null)
+                    _list_artists.clear();
+                getDataSearchArtist(query, "0", "20");
                 return false;
             }
 
@@ -91,39 +99,6 @@ public class HomeActivity extends AToolbarCompatActivity implements View.OnClick
             _drawerLayout.openDrawer(GravityCompat.START);
     }
 
-    /*
-    ** Get Data : Categories
-    */
-
-    public void getData(String offset, String limit) {
-        HomeManager.getAllCategories(offset, limit, new MyCallback<AllCategories>() {
-            @Override
-            public void onResponseSuccess(AllCategories allCategories, Headers headers) {
-                if (_list_categories == null)
-                    _list_categories = allCategories.info_categories.list_categories;
-                else
-                    _list_categories.addAll(allCategories.info_categories.list_categories);
-
-                if (allCategories.info_categories.next != null && allCategories.info_categories.next != "") {
-                    String[] parts = allCategories.info_categories.next.split("=|&");
-                    getData(parts[1], parts[3]);
-                }
-                setView();
-            }
-
-            @Override
-            public void onResponseFailure(String s, Error error, int i) {
-                Log.d("HOME ACTIVITY", "ERROR 1 : " + s);
-                setView();
-            }
-
-            @Override
-            public void onFailure(String s) {
-                Log.d("HOME ACTIVITY", "ERROR 2 : " + s);
-                setView();
-            }
-        });
-    }
 
     /*
     ** Set View
@@ -152,14 +127,83 @@ public class HomeActivity extends AToolbarCompatActivity implements View.OnClick
 
     public void setupRecyclerCategories() {
         _recycler = (RecyclerView) findViewById(R.id.list_item);
-        _adapter = new CategorieslistAdapter(getApplicationContext(), _list_categories);
-        _recycler.setAdapter(_adapter);
+        _adapterCategories = new CategorieslistAdapter(getApplicationContext(), _list_categories);
+        _recycler.setAdapter(_adapterCategories);
         _recycler.setLayoutManager(new GridLayoutManager(this, 2));
-        }
+    }
 
+    public void setupRecyclerResult() {
+        _recycler = (RecyclerView) findViewById(R.id.list_item);
+        _adapterArtists = new ArtistslistAdapter(getApplicationContext(), _list_artists);
+        _recycler.setAdapter(_adapterArtists);
+        _recycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+    }
 
     /*
-     ** Menu
+    ** Get Data : Categories
+    */
+
+    public void getDataCategories(String offset, String limit) {
+        HomeManager.getAllCategories(offset, limit, new MyCallback<AllCategories>() {
+            @Override
+            public void onResponseSuccess(AllCategories allCategories, Headers headers) {
+                if (_list_categories == null)
+                    _list_categories = allCategories.info_categories.list_categories;
+                else
+                    _list_categories.addAll(allCategories.info_categories.list_categories);
+
+                if (allCategories.info_categories.next != null && allCategories.info_categories.next != "") {
+                    String[] parts = allCategories.info_categories.next.split("=|&");
+                    getDataCategories(parts[1], parts[3]);
+                }
+                setView();
+            }
+
+            @Override
+            public void onResponseFailure(String s, Error error, int i) {
+                Toast.makeText(getApplicationContext(), getString(R.string.global_error), Toast.LENGTH_SHORT).show();
+                setView();
+            }
+
+            @Override
+            public void onFailure(String s) {
+                Toast.makeText(getApplicationContext(), getString(R.string.global_error), Toast.LENGTH_SHORT).show();
+                setView();
+            }
+        });
+    }
+
+    public void getDataSearchArtist(final String name, String offset, String limit) {
+        HomeManager.getResultSearch(name, offset, limit, new MyCallback<ResultSearch>() {
+            @Override
+            public void onResponseSuccess(ResultSearch resultSearch, Headers headers) {
+                if (_list_artists == null)
+                    _list_artists = resultSearch.artists.list_artists;
+                else
+                    _list_artists.addAll(resultSearch.artists.list_artists);
+
+                if (resultSearch.artists.next != null) {
+                    String[] parts = resultSearch.artists.next.split("=|&");
+                    getDataSearchArtist(name, parts[7], parts[9]);
+                }
+                setupRecyclerResult();
+
+            }
+
+            @Override
+            public void onResponseFailure(String s, Error error, int i) {
+                Toast.makeText(getApplicationContext(), getString(R.string.no_result), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(String s) {
+                Toast.makeText(getApplicationContext(), getString(R.string.global_error), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    /*
+    ** Menu
     */
 
     private void setupDrawerList() {

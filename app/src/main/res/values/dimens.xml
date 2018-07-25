@@ -25,6 +25,7 @@
 
     <!-- IMAGES -->
     <dimen name="size_img_sidebar">30dp</dimen>
+    <dimen name="size_img">100dp</dimen>
 
     <dimen name="margin_img">10dp</dimen>
 

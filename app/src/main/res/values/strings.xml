@@ -20,7 +20,6 @@
 
     <!-- ICONS -->
     <string name="fa_icon_home">&#xf015;</string>
-    <string name="fa_icon_search">&#xf002;</string>
     <string name="fa_icon_profile">&#xf007;</string>
     <string name="fa_icon_playlist">&#xf001;</string>
     <string name="fa_icon_logout">&#xf2f5;</string>
@@ -30,5 +29,9 @@
 
     <!-- ERROR -->
     <string name="global_error">Une erreur s\'est produite. Veuillez réessayer.</string>
+    <string name="no_result">Aucun résultat trouvé.</string>
+
+    <!-- LIST ARTISTS -->
+    <string name="followers">Abonnés : </string>
 
 </resources>

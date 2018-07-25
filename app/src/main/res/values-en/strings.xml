@@ -29,5 +29,9 @@
 
     <!-- ERROR -->
     <string name="global_error">An error has occurred. Please try again.</string>
+    <string name="no_result">Any result found.</string>
+
+    <!-- LIST ARTISTS -->
+    <string name="followers">Followers : </string>
 
 </resources>

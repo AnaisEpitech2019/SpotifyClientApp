@@ -14,11 +14,11 @@ import java.util.List;
 public class CategorieslistAdapter extends RecyclerView.Adapter<CategoriesViewHolder> {
 
     private Context _context;
-    private List<CategoryMusic> _list_equipment;
+    private List<CategoryMusic> _list;
 
-    public CategorieslistAdapter(Context context, List<CategoryMusic> list_equipment) {
+    public CategorieslistAdapter(Context context, List<CategoryMusic> list_categories) {
         _context = context;
-        _list_equipment = list_equipment;
+        _list = list_categories;
     }
 
     @Override
@@ -28,11 +28,11 @@ public class CategorieslistAdapter extends RecyclerView.Adapter<CategoriesViewHo
 
     @Override
     public void onBindViewHolder(CategoriesViewHolder holder, int position) {
-        holder.bind(_context, _list_equipment.get(position));
+        holder.bind(_context, _list.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return _list_equipment.size();
+        return _list.size();
     }
 }
