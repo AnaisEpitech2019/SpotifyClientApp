@@ -6,20 +6,26 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.spotifyclientapp.anais.spotifyclientapp.R;
+import com.spotifyclientapp.anais.spotifyclientapp.recycler.listArtists.ArtistslistAdapter;
+import com.spotifyclientapp.anais.spotifyclientapp.recycler.listTracks.TrackslistAdapter;
 import com.spotifyclientapp.anais.spotifyclientapp_api.callbacks.MyCallback;
 import com.spotifyclientapp.anais.spotifyclientapp_api.managers.ArtistManager;
+import com.spotifyclientapp.anais.spotifyclientapp_api.models.artist.Track;
 import com.spotifyclientapp.anais.spotifyclientapp_api.models.modelsAll.AllArtists;
 import com.spotifyclientapp.anais.spotifyclientapp_api.models.modelsAll.AllTracks;
 import com.spotifyclientapp.anais.spotifyclientapp_api.models.search.Artist;
 
 import java.io.InputStream;
 import java.net.URL;
+import java.util.List;
 
 import okhttp3.Headers;
 
@@ -30,6 +36,15 @@ public class ProfileArtistActivity extends AppCompatActivity {
 
     private ImageView _img;
     private TextView _name;
+
+    private List<Track> _list_top_tracks;
+    private List<Artist> _list_related_artists;
+
+    private RecyclerView _recyclerArtists;
+    private ArtistslistAdapter _adapterArtists;
+
+    private RecyclerView _recyclerTracks;
+    private TrackslistAdapter _adapterTracks;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,6 +87,20 @@ public class ProfileArtistActivity extends AppCompatActivity {
 
     }
 
+    public void setupRecyclerTopTracks() {
+        _recyclerTracks = (RecyclerView) findViewById(R.id.list_top_tracks);
+        _adapterTracks = new TrackslistAdapter(getApplicationContext(), _list_top_tracks);
+        _recyclerTracks.setAdapter(_adapterTracks);
+        _recyclerTracks.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+    }
+
+    public void setupRecyclerRelatedArtists() {
+        _recyclerArtists = (RecyclerView) findViewById(R.id.list_related_artists);
+        _adapterArtists = new ArtistslistAdapter(getApplicationContext(), _list_related_artists);
+        _recyclerArtists.setAdapter(_adapterArtists);
+        _recyclerArtists.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+    }
+
     /*
     ** Get Data
     */
@@ -79,7 +108,8 @@ public class ProfileArtistActivity extends AppCompatActivity {
         ArtistManager.getTopTracks(id_artist, getString(R.string.country), new MyCallback<AllTracks>() {
             @Override
             public void onResponseSuccess(AllTracks allTracks, Headers headers) {
-                //TODO Set first recycler
+                _list_top_tracks = allTracks.list_tracks;
+                setupRecyclerTopTracks();
             }
 
             @Override
@@ -96,7 +126,8 @@ public class ProfileArtistActivity extends AppCompatActivity {
         ArtistManager.getRelatedArtists(id_artist, new MyCallback<AllArtists>() {
             @Override
             public void onResponseSuccess(AllArtists allArtists, Headers headers) {
-                //TODO Set second recycler
+                _list_related_artists = allArtists.list_artists;
+                setupRecyclerRelatedArtists();
             }
 
             @Override

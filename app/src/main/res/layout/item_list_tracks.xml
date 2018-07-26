@@ -9,20 +9,21 @@
 
     <ImageView
         android:id="@+id/img"
-        android:layout_width="@dimen/size_img"
-        android:layout_height="@dimen/size_img"
+        android:layout_width="@dimen/size_short_img"
+        android:layout_height="@dimen/size_short_img"
+        android:background="@color/grey"
         android:scaleType="centerCrop"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_img"
+        android:layout_height="@dimen/size_short_img"
         android:layout_below="@+id/img"
         android:orientation="vertical"
         android:background="@color/grey"
         android:padding="@dimen/padding_text">
 
         <TextView
-            android:id="@+id/name_artist"
+            android:id="@+id/song_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -32,27 +33,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_weight="1">
 
             <TextView
-                android:id="@+id/text_followers_fix"
+                android:id="@+id/album_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/followers"
                 android:textSize="@dimen/size_text"
-                android:textColor="@color/dark_grey" />
-
-            <TextView
-                android:id="@+id/nb_followers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_followers_fix"
-                android:textSize="@dimen/size_text"
-                android:textColor="@color/black"/>
+                android:textColor="@color/dark_grey"/>
 
         </LinearLayout>
 
     </LinearLayout>
+
 
 </LinearLayout>
