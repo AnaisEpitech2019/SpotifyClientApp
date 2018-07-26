@@ -29,6 +29,7 @@
 
     <!-- PLAYLISTS -->
     <string name="sentence_no_playlists">Vous n\'avez aucune librairie enregistrée.</string>
+    <string name="available_soon">Disponible prochainement</string>
 
     <!-- ERROR -->
     <string name="global_error">Une erreur s\'est produite. Veuillez réessayer.</string>

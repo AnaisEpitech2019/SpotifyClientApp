@@ -29,6 +29,7 @@
 
     <!-- PLAYLISTS -->
     <string name="sentence_no_playlists">You have any library saved.</string>
+    <string name="available_soon">Available soon</string>
 
     <!-- ERROR -->
     <string name="global_error">An error has occurred. Please try again.</string>
