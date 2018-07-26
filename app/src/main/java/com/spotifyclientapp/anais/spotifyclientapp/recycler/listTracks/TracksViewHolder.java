@@ -10,7 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.spotifyclientapp.anais.spotifyclientapp.R;
+import com.spotifyclientapp.anais.spotifyclientapp.utils.CircleTransform;
 import com.spotifyclientapp.anais.spotifyclientapp_api.models.artist.Track;
+import com.squareup.picasso.Picasso;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -40,8 +42,12 @@ public class TracksViewHolder extends RecyclerView.ViewHolder {
         _album_title.setText(track.album.name);
 
         // Download png
+
         if (track.album.list_img.get(0).url_icon != "" && track.album.list_img.get(0).url_icon != null)
-            new TracksViewHolder.GetImageFromURL(_img).execute(track.album.list_img.get(0).url_icon);
+            Picasso.with(context).load(track.album.list_img.get(0).url_icon).transform(new CircleTransform()).into(_img);
+
+        //if (track.album.list_img.get(0).url_icon != "" && track.album.list_img.get(0).url_icon != null)
+          //  new TracksViewHolder.GetImageFromURL(_img).execute(track.album.list_img.get(0).url_icon);
     }
 
     // Download img

@@ -12,7 +12,8 @@
         android:layout_width="@dimen/size_short_img"
         android:layout_height="@dimen/size_short_img"
         android:background="@color/grey"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:padding="@dimen/padding_img"/>
 
     <LinearLayout
         android:layout_width="match_parent"
