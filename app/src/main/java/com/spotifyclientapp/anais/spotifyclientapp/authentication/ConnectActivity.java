@@ -3,7 +3,6 @@ package com.spotifyclientapp.anais.spotifyclientapp.authentication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.spotify.sdk.android.authentication.AuthenticationClient;
@@ -48,7 +47,6 @@ public class ConnectActivity extends AppCompatActivity {
 
             switch (response.getType()) {
                 case TOKEN:
-                    Log.d("ConnectActivity", "SUCCESS : " + response.getAccessToken());
                     APIManager.setAuthToken(response.getAccessToken());
                     startActivity(new Intent(this, HomeActivity.class));
                     break;

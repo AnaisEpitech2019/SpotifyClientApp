@@ -37,21 +37,6 @@ public class CategoriesViewHolder extends RecyclerView.ViewHolder {
         // Download png
         if (category.icons.get(0).url_icon != "")
             new GetImageFromURL(_img).execute(category.icons.get(0).url_icon);
-
-        //TODO Uncomment if selectable
-        /*
-        // Selection Course
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Send information at the next activity
-                Intent intent = new Intent(_context, FactSheetCategoryActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("id_equipment", category.id);
-                _context.startActivity(intent);
-            }
-        });
-        */
     }
 
     // Download img

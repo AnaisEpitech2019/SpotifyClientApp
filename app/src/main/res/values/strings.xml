@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Spotify</string>
 
+    <!-- LOCALITY -->
+    <string name="country">FR</string>
+
     <!-- AUTHENTICATION -->
     <string name="fb_connect">Connexion avec Facebook</string>
     <string name="or">ou</string>

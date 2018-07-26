@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -139,7 +138,6 @@ public class PlaylistsActivity  extends AToolbarCompatActivity implements View.O
                 break;
             case ID_LOGOUT:
                 _drawerLayout.closeDrawer(GravityCompat.START);
-                //TODO Ajouter la liaison de déconnexion
                 startActivity(new Intent(this, ConnectActivity.class));
                 finish();
                 break;
@@ -157,20 +155,17 @@ public class PlaylistsActivity  extends AToolbarCompatActivity implements View.O
             @Override
             public void onResponseSuccess(AllPlaylist allPlaylist, Headers headers) {
                 _allPlaylists = allPlaylist;
-                Log.d("PlaylistsActivity", String.valueOf(_allPlaylists.nb_playlists));
                 setView();
             }
 
             @Override
             public void onResponseFailure(String s, Error error, int i) {
-                Log.d("PlaylistsActivity", "Error : " + s);
                 Toast.makeText(getApplicationContext(), getString(R.string.global_error), Toast.LENGTH_SHORT).show();
                 setView();
             }
 
             @Override
             public void onFailure(String s) {
-                Log.d("PlaylistsActivity", "Error 2 : " + s);
                 Toast.makeText(getApplicationContext(), getString(R.string.global_error), Toast.LENGTH_SHORT).show();
                 setView();
             }

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -136,7 +135,6 @@ public class ProfileActivity extends AToolbarCompatActivity implements View.OnCl
                 break;
             case ID_LOGOUT:
                 _drawerLayout.closeDrawer(GravityCompat.START);
-                //TODO Ajouter la liaison de déconnexion
                 startActivity(new Intent(this, ConnectActivity.class));
                 finish();
                 break;
@@ -153,7 +151,7 @@ public class ProfileActivity extends AToolbarCompatActivity implements View.OnCl
             @Override
             public void onResponseSuccess(User user, Headers headers) {
                 _user = user;
-                Log.d("ProfileActivity", "username : " + _user.username);
+                //TODO SetView
             }
 
             @Override
