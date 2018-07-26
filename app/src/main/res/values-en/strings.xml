@@ -9,7 +9,7 @@
     <string name="or">or</string>
     <string name="identity">Username or email address</string>
     <string name="pwd">Password</string>
-    <string name="forgot_pwd">Forgot your username or password ?</string>
+    <string name="forgot_pwd">Forgotten your username or password ?</string>
     <string name="connect">Connection</string>
 
     <!-- MENU -->
@@ -28,12 +28,11 @@
     <string name="fa_icon_logout">&#xf2f5;</string>
 
     <!-- PLAYLISTS -->
-    <string name="sentence_no_playlists">You have any library saved.</string>
-    <string name="available_soon">Available soon</string>
+    <string name="sentence_no_playlists">You don\'t have any library saved.</string>
 
     <!-- ERROR -->
     <string name="global_error">An error has occurred. Please try again.</string>
-    <string name="no_result">Any result found.</string>
+    <string name="no_result">No result found.</string>
 
     <!-- LIST ARTISTS -->
     <string name="followers">Followers : </string>
