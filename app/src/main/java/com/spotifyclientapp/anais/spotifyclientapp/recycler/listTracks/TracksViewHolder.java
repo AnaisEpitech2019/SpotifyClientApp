@@ -45,9 +45,6 @@ public class TracksViewHolder extends RecyclerView.ViewHolder {
 
         if (track.album.list_img.get(0).url_icon != "" && track.album.list_img.get(0).url_icon != null)
             Picasso.with(context).load(track.album.list_img.get(0).url_icon).transform(new CircleTransform()).into(_img);
-
-        //if (track.album.list_img.get(0).url_icon != "" && track.album.list_img.get(0).url_icon != null)
-          //  new TracksViewHolder.GetImageFromURL(_img).execute(track.album.list_img.get(0).url_icon);
     }
 
     // Download img

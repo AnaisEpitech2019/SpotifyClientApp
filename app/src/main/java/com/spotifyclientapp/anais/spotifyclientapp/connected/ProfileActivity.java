@@ -69,9 +69,7 @@ public class ProfileActivity extends AToolbarCompatActivity implements View.OnCl
         // Init and Set menu
         initNavigationDrawer();
         setupDrawerList();
-
-        //TODO Mettre en place design pour afficher les infos user
-    }
+        }
 
 
     /*
