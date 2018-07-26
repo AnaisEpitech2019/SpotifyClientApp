@@ -36,5 +36,9 @@
 
     <!-- LIST ARTISTS -->
     <string name="followers">Followers : </string>
+    
+    <!-- PROFILE ARTIST -->
+    <string name="top_tracks">Top tracks</string>
+    <string name="related_artists">Related artists</string>
 
 </resources>

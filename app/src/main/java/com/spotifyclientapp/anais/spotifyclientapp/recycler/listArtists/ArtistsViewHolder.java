@@ -55,6 +55,7 @@ public class ArtistsViewHolder extends RecyclerView.ViewHolder {
             Intent intent = new Intent(_context, ProfileArtistActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra("id_artist", artist.id);
+            intent.putExtra("artist",artist);
             _context.startActivity(intent);
             }
         });

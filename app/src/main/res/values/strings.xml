@@ -37,4 +37,8 @@
     <!-- LIST ARTISTS -->
     <string name="followers">Abonnés : </string>
 
+    <!-- PROFILE ARTIST -->
+    <string name="top_tracks">Meilleures pistes</string>
+    <string name="related_artists">Artistes liés</string>
+
 </resources>
